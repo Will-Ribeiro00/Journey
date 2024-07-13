@@ -66,12 +66,12 @@ const AtualizarListaAtividades = () =>{
     return
   }
 
+  atividades.sort((a, b) => new Date(a.data) - new Date(b.data))
+
   for(let atividade of atividades){
       section.innerHTML += CriarAtividade(atividade)
   }
 }
-
-AtualizarListaAtividades()
 
 const salvarAtividade = (event) =>{
   event.preventDefault()
