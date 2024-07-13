@@ -1,10 +1,4 @@
-class Atividade{
-  constructor(nome, data, finalizacao){
-      this.nome = nome,
-      this.data = data,
-      this.finalizacao = finalizacao
-  }
-}
+import { Atividade } from "../Models/Atividade.js"
 
 const formatador = (data) => {
   return{
@@ -20,9 +14,7 @@ const formatador = (data) => {
   }
 }
 
-let atividades = [
-  new Atividade('Café da manhã','2024-07-13 09:30', finalizacao = false)
-]
+let atividades = []
 
 const CriarAtividade = (Atividade) =>{
 
@@ -90,7 +82,7 @@ const salvarAtividade = (event) =>{
   const hora = dadosDoFormulario.get("hora")
   const data = `${dia} ${hora}`
 
-  const novaAtividade = new Atividade(nome, data, finalizacao = false)
+  const novaAtividade = new Atividade(nome, data, false)
 
   const atividadeExiste = atividades.find((atividade)  => {
     return atividade.data == novaAtividade.data
@@ -105,8 +97,16 @@ const salvarAtividade = (event) =>{
 
 const criarDiasSelecao = () => {
 const dias = [
-  "2024-12-12",
-  "2024-12-11"
+  "2024-12-01",
+  "2024-12-02",
+  "2024-12-03",
+  "2024-12-04",
+  "2024-12-05",
+  "2024-12-06",
+  "2024-12-07",
+  "2024-12-08",
+  "2024-12-09",
+  "2024-12-10",
 ]
  let diasSelecao = ''
 
@@ -148,3 +148,7 @@ const concluirAtividade = (event) => {
 
   atividade.finalizacao = !atividade.finalizacao
 }
+
+
+window.salvarAtividade = salvarAtividade;
+window.concluirAtividade = concluirAtividade;
