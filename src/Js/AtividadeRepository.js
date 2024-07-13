@@ -57,7 +57,6 @@ const CriarAtividade = (Atividade) =>{
   </div>
   `
 }
-
 const AtualizarListaAtividades = () =>{
   const section = document.querySelector('section');
   section.innerHTML = ''
@@ -72,6 +71,8 @@ const AtualizarListaAtividades = () =>{
       section.innerHTML += CriarAtividade(atividade)
   }
 }
+
+AtualizarListaAtividades()
 
 const salvarAtividade = (event) =>{
   event.preventDefault()
