@@ -97,18 +97,19 @@ const salvarAtividade = (event) =>{
 }
 
 const criarDiasSelecao = () => {
-const dias = [
-  "2024-12-01",
-  "2024-12-02",
-  "2024-12-03",
-  "2024-12-04",
-  "2024-12-05",
-  "2024-12-06",
-  "2024-12-07",
-  "2024-12-08",
-  "2024-12-09",
-  "2024-12-10",
-]
+const dias = []
+const dataInicio = new Date(2024,12,1)
+const dataFinal = new Date(2024,12,31)
+
+while(dataInicio <= dataFinal){
+  const ano = String(dataInicio.getFullYear());
+  const mes = String(dataInicio.getMonth()).padStart(2, '0')
+  const dia = String(dataInicio.getDate()).padStart(2, '0')
+  dias.push(`${ano}-${mes}-${dia}`)
+
+  dataInicio.setDate(dataInicio.getDate() + 1);
+}
+
  let diasSelecao = ''
 
  for(let dia of dias){
@@ -126,7 +127,7 @@ const criarHoraSelecao = () =>{
 
   let horaDisponivel = ''
 
-  for(let i = 6; i < 24; i++){
+  for(let i = 9; i < 24; i++){
     const hora = String(i).padStart(2,"0")
     horaDisponivel += `<option value="${hora}:00">${hora}:00</option>`
     horaDisponivel += `<option value="${hora}:30">${hora}:30</option>`
