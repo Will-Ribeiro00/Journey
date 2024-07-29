@@ -98,12 +98,12 @@ const salvarAtividade = (event) =>{
 
 const criarDiasSelecao = () => {
 const dias = []
-const dataInicio = new Date(2024,12,1)
-const dataFinal = new Date(2024,12,31)
+const dataInicio = new Date(2024,11,1)
+const dataFinal = new Date(2024,11,31)
 
 while(dataInicio <= dataFinal){
   const ano = String(dataInicio.getFullYear());
-  const mes = String(dataInicio.getMonth()).padStart(2, '0')
+  const mes = String(dataInicio.getMonth() +1).padStart(2, '0')
   const dia = String(dataInicio.getDate()).padStart(2, '0')
   dias.push(`${ano}-${mes}-${dia}`)
 
